@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 # PV Detection Pipeline
 
 A complete end-to-end pipeline for detecting and measuring solar panel (photovoltaic) installations from satellite imagery using deep learning.
@@ -256,3 +257,6 @@ For issues or questions:
 
 **Version**: 1.0  
 **Last Updated**: December 2025
+=======
+# CODE_OF_DUTY
+>>>>>>> 2489521a1ff25fec94b481983b7761bcd3582064
