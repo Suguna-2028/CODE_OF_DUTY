@@ -1,0 +1,9 @@
+requests
+Pillow
+numpy
+scikit-image
+geopy
+torch
+tensorflow
+GDAL
+rasterio

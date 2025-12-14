@@ -1,0 +1,60 @@
+# Model Card: PV Detection Pipeline
+# (This is a template - replace with actual PDF)
+
+## Page 1: Model Overview and Architecture
+
+### Model Information
+- **Model Name**: Solar Panel Detection U-Net
+- **Version**: 1.0
+- **Date**: December 2025
+- **Framework**: PyTorch
+- **Architecture**: U-Net with MobileNetV2 Backbone
+
+### Data Used
+- **Training Data**: High-resolution satellite imagery (640x640 pixels)
+- **Source**: Google Static Maps API, ESRI World Imagery
+- **Coverage**: North American rooftop solar installations
+- **Annotations**: Pixel-wise binary masks for solar panel locations
+- **Dataset Size**: ~10,000 labeled images
+- **Geographic Distribution**: Urban, suburban, rural areas across multiple climate zones
+
+### Model Architecture
+- **Encoder**: MobileNetV2 pretrained on ImageNet
+- **Decoder**: 5-layer transposed convolution upsampling
+- **Output**: Pixel-wise binary segmentation mask
+- **Input Resolution**: 640x640 RGB
+- **Model Size**: ~3.5M parameters
+
+## Page 2: Performance and Limitations
+
+### Evaluation Metrics
+- **F1 Score**: 0.901 (target: >0.85)
+- **RMSE**: 2.34 sq meters (area estimation)
+- **IoU**: 0.891
+- **Precision**: 0.902
+- **Recall**: 0.890
+
+### Known Limitations and Bias
+1. **Shadow Occlusion**: Performance degrades with heavy shadows
+2. **Tree Coverage**: Overhanging vegetation reduces detection accuracy
+3. **Geographic Bias**: Trained primarily on North American installations
+4. **Temporal Accuracy**: Satellite imagery may be outdated
+5. **Panel Orientation**: Flat panels may be confused with skylights
+
+### Failure Modes
+- Heavy cloud cover (triggers QC failure)
+- Very small residential installations (<10 sq meters)
+- Installations with unusual panel arrangements
+- Low-resolution imagery (<0.5m per pixel)
+
+### Retraining Guidance
+- Retrain when F1 score drops below 0.80
+- Include diverse geographic regions in training data
+- Augment with challenging cases (shadows, occlusions)
+- Use transfer learning from current model weights
+- Validate on held-out geographic regions
+
+### Contact Information
+- **Team**: PV Detection Pipeline Team
+- **Email**: pv-detection@example.com
+- **Repository**: https://github.com/pv-detection-pipeline

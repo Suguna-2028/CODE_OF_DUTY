@@ -1,0 +1,3 @@
+# This folder will contain JSON prediction files
+# Files are generated automatically when running the pipeline
+# Format: [sample_id]_prediction.json
